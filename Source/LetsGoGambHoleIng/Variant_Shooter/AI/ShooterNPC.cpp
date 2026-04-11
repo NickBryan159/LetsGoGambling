@@ -44,6 +44,8 @@ float AShooterNPC::TakeDamage(float Damage, struct FDamageEvent const& DamageEve
 	// Reduce HP
 	CurrentHP -= Damage;
 
+	BP_OnDamaged(Damage);
+
 	// Have we depleted HP?
 	if (CurrentHP <= 0.0f)
 	{
