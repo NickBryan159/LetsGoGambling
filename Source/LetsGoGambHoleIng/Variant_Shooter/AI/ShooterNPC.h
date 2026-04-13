@@ -25,10 +25,7 @@ public:
 
 	/** Current HP for this character. It dies if it reaches zero through damage */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Damage")
-	float CurrentHP = 1000.0f;
-
-	UFUNCTION(BlueprintImplementableEvent,Category = "Damage")
-	void BP_OnDamaged(float DamageAmount);
+	float CurrentHP = 100.0f;
 
 protected:
 
