@@ -84,3 +84,22 @@ void AShooterProjectile::DamageCharacter(ACharacter* HitCharacter, const FHitRes
 	// apply damage to the character
 	UGameplayStatics::ApplyDamage(HitCharacter, HitDamage, GetInstigator()->GetController(), this, HitDamageType);
 }
+
+void AShooterProjectile::SetRandomDiceFaceOrientation()
+{
+
+	TArray<FRotator> DiceRotations;
+
+	DiceRotations.Add(FRotator(0.f, 0.f, 0.f));
+	DiceRotations.Add(FRotator(0.f, 90.f, 0.f));
+	DiceRotations.Add(FRotator(0.f, 180.f, 0.f));
+	DiceRotations.Add(FRotator(0.f, 270.f, 0.f));
+	DiceRotations.Add(FRotator(90.f, 0.f, 0.f));
+	DiceRotations.Add(FRotator(-90.f, 0.f, 0.f));
+
+	const int32 Index = FMath::RandRange(0, DiceRotations.Num() - 1);
+	UStaticMeshComponent* MeshComp = FindComponentByClass<UStaticMeshComponent>();
+	if (!MeshComp) return;
+
+	MeshComp->SetRelativeRotation(DiceRotations[Index]);
+}
