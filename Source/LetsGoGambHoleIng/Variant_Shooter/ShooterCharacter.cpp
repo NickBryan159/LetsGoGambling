@@ -232,3 +232,13 @@ AShooterWeapon* AShooterCharacter::FindWeaponOfType(TSubclassOf<AShooterWeapon> 
 	return nullptr;
 
 }
+
+void AShooterCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (DefaultWeaponClass)
+	{
+		AddWeaponClass(DefaultWeaponClass);
+	}
+}

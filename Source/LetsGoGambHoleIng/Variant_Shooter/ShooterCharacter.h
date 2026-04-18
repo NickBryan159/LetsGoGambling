@@ -64,6 +64,11 @@ protected:
 	/** Weapon currently equipped and ready to shoot with */
 	TObjectPtr<AShooterWeapon> CurrentWeapon;
 
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	TSubclassOf<AShooterWeapon> DefaultWeaponClass;
+
 public:
 
 	/** Bullet count updated delegate */

@@ -60,6 +60,8 @@ public:
 	/** Constructor */
 	AShooterProjectile();
 
+	void SetRandomDiceFaceOrientation();
+
 protected:
 	
 	/** Gameplay initialization */

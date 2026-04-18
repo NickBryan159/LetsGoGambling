@@ -164,6 +164,13 @@ void AShooterWeapon::FireProjectile(const FVector& TargetLocation)
 	// get the projectile transform
 	FTransform ProjectileTransform = CalculateProjectileSpawnTransform(TargetLocation);
 	
+	// add random rotation
+	//ProjectileTransform.SetRotation(FQuat::MakeFromEuler(FVector(
+	//	FMath::RandRange(0.f, 360.f),
+	//	FMath::RandRange(0.f, 360.f),
+	//	FMath::RandRange(0.f, 360.f)
+	//)));
+
 	// spawn the projectile
 	FActorSpawnParameters SpawnParams;
 	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
@@ -172,6 +179,8 @@ void AShooterWeapon::FireProjectile(const FVector& TargetLocation)
 	SpawnParams.Instigator = PawnOwner;
 
 	AShooterProjectile* Projectile = GetWorld()->SpawnActor<AShooterProjectile>(ProjectileClass, ProjectileTransform, SpawnParams);
+
+	Projectile->SetRandomDiceFaceOrientation();
 
 	// play the firing montage
 	WeaponOwner->PlayFiringMontage(FiringMontage);
