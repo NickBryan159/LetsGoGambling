@@ -19,12 +19,12 @@ class LETSGOGAMBHOLEING_API AShooterProjectile : public AActor
 	GENERATED_BODY()
 	
 	/** Provides collision detection for the projectile */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
-	USphereComponent* CollisionComponent;
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
+	//USphereComponent* CollisionComponent;
 
 	/** Handles movement for the projectile */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
-	UProjectileMovementComponent* ProjectileMovement;
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
+	//UProjectileMovementComponent* ProjectileMovement;
 
 protected:
 
@@ -65,10 +65,10 @@ public:
 protected:
 	
 	/** Gameplay initialization */
-	virtual void BeginPlay() override;
+	//virtual void BeginPlay() override;
 
 	/** Handles collision */
-	virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
+	//virtual void NotifyHit(class UPrimitiveComponent* MyComp, AActor* Other, class UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
 protected:
 
